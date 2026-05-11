@@ -14,6 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import io.github.kaliumlauncher.kalium.data.AppInfo
 import io.github.kaliumlauncher.kalium.ui.components.AppItem
+import androidx.compose.foundation.background
+import androidx.compose.material3.MaterialTheme
 
 
 @Composable
@@ -24,6 +26,7 @@ fun AppDrawerScreen(context: Context) {
         columns = GridCells.Fixed(4),
         modifier = Modifier
             .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
             .padding(8.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -39,6 +42,9 @@ fun AppDrawerScreen(context: Context) {
     }
 }
 
+/**
+ * gets the installed apps i guess
+ */
 fun getInstalledApps(context: Context): List<AppInfo> {
     val pm = context.packageManager
     val intent = Intent(Intent.ACTION_MAIN).apply {
